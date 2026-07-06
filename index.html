@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Test 1 Bakery | Artisan Sourdough & Pastries in Singapore CBD</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --color-primary: #a85d3f;
+    --color-secondary: #f4e9dc;
+    --color-dark: #3a2c26;
+    --color-light: #fff9f4;
+    --color-accent: #d2753b;
+    --font-sans: 'Montserrat', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin:0; 
+    font-family: var(--font-sans);
+    background: var(--color-light);
+    color: var(--color-dark);
+    line-height: 1.6;
+  }
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  a:hover, button:hover {
+    color: var(--color-primary);
+  }
+  header {
+    background: var(--color-primary);
+    color: var(--color-light);
+    padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  header h1 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  nav ul li {
+    font-weight: 600;
+  }
+  nav ul li a {
+    color: var(--color-light);
+    transition: color 0.3s ease;
+  }
+  nav ul li a:focus {
+    outline: 2px solid var(--color-light);
+    outline-offset: 2px;
+  }
+  main {
+    max-width: 1120px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  section {
+    margin-bottom: 4rem;
+  }
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: var(--color-primary);
+    margin-bottom: 0.8rem;
+  }
+  .intro-text {
+    font-size: 1.1rem;
+    max-width: 680px;
+    margin-bottom: 2rem;
+    color: #4a392e;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--color-primary);
+    color: var(--color-light);
+    padding: 0.75rem 1.75rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1.2px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+  }
+  .btn-primary:focus {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+  .btn-primary:hover {
+    background: var(--color-accent);
+  }
+  .offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2rem;
+  }
+  .offering-card {
+    background: var(--color-secondary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgb(168 93 63 / 0.25);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+  .offering-card:hover {
+    transform: translateY(-6px);
+  }
+  .offering-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--color-primary);
+  }
+  .offering-content {
+    padding: 1rem 1.2rem 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .offering-content h3 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--color-primary);
+  }
+  .offering-content p {
+    flex-grow: 1;
+    font-size: 0.95rem;
+    color: #5b4539;
+  }
+  section#about p {
+    max-width: 720px;
+    margin-bottom: 1rem;
+    color: #5a4539;
+  }
+  blockquote.testimonial {
+    position: relative;
+    font-style: italic;
+    color: #5b4539;
+    border-left: 6px solid var(--color-primary);
+    padding-left: 1.2rem;
+    margin: 0 0 1.5rem 0;
+    background: #fff7f2;
+    border-radius: 6px;
+    box-shadow: 2px 2px 10px rgb(168 93 63 / 0.1);
+  }
+  blockquote.testimonial footer {
+    font-weight: 700;
+    margin-top: 0.5rem;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+  }
+  footer {
+    background: var(--color-primary);
+    color: var(--color-light);
+    text-align: center;
+    padding: 1.4rem 1rem;
+    font-size: 0.9rem;
+  }
+  .preorder-info {
+    background: var(--color-secondary);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    max-width: 600px;
+    margin: 1rem auto 0 auto;
+    text-align: center;
+    box-shadow: 0 4px 12px rgb(168 93 63 / 0.18);
+  }
+  .preorder-info strong {
+    color: var(--color-primary);
+  }
+  /* Newsletter and Update Email Form Styles */
+  .forms-wrapper {
+    max-width: 720px;
+    margin: 0 auto 3rem auto;
+    padding: 1rem 1rem 2rem 1rem;
+    background: var(--color-secondary);
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgb(168 93 63 / 0.15);
+  }
+  .forms-wrapper h2 {
+    margin-bottom: 1rem;
+  }
+  form {
+    display: grid;
+    gap: 1rem 1.2rem;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+    margin-bottom: 1.8rem;
+  }
+  form.update-email-form {
+    grid-template-columns: 1fr 1fr auto;
+  }
+  label {
+    display: none;
+  }
+  input[type="email"], input[type="text"] {
+    font-size: 1rem;
+    padding: 0.55rem 1rem;
+    border: 2px solid var(--color-primary);
+    border-radius: 30px;
+    transition: border-color 0.3s ease;
+    font-family: var(--font-sans);
+    color: var(--color-dark);
+  }
+  input[type="email"]:focus, input[type="text"]:focus {
+    border-color: var(--color-accent);
+    outline: none;
+  }
+  input::placeholder {
+    color: #a6744e;
+  }
+  button[type="submit"] {
+    padding: 0.6rem 1.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 30px;
+    border: none;
+    background: var(--color-primary);
+    color: var(--color-light);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button[type="submit"]:focus {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  button[type="submit"]:hover {
+    background: var(--color-accent);
+  }
+  .form-status {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+  @media (max-width: 600px) {
+    nav ul {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    form {
+      grid-template-columns: 1fr;
+    }
+    form button {
+      width: 100%;
+      margin-top: 0.3rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header role="banner">
+  <div class="container">
+    <h1 tabindex="0">Test 1 Bakery</h1>
+    <nav role="navigation" aria-label="Primary navigation">
+      <ul>
+        <li><a href="#offerings">Offerings</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#preorder">Pre-Order Online</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+  <section id="offerings" aria-labelledby="offerings-title">
+    <h2 id="offerings-title">Our Artisan Offerings</h2>
+    <p class="intro-text">At Test 1 Bakery, we handcraft every loaf, pastry, and cake with passion and care. Discover the flavours of premium sourdough, delectable pastries, and seasonal cakes made fresh daily – perfect for your busy lifestyle in Singapore's CBD.</p>
+    <div class="offerings-grid" role="list">
+      <article class="offering-card" role="listitem" tabindex="0" aria-label="Sourdough Bread">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80" alt="Freshly baked artisan sourdough bread loaf" loading="lazy" />
+        <div class="offering-content">
+          <h3>Sourdough Bread</h3>
+          <p>Our signature sourdough: naturally fermented, crusty on the outside, soft and chewy inside. Perfect for sandwiches or breakfast.</p>
+        </div>
+      </article>
+      <article class="offering-card" role="listitem" tabindex="0" aria-label="Pastries">
+        <img src="https://images.unsplash.com/photo-1505253210343-864d568ec131?auto=format&fit=crop&w=600&q=80" alt="Assorted buttery artisan pastries on a wooden board" loading="lazy" />
+        <div class="offering-content">
+          <h3>Pastries</h3>
+          <p>Flaky croissants, pain au chocolat, danishes and more — all baked fresh each morning with top-quality ingredients.</p>
+        </div>
+      </article>
+      <article class="offering-card" role="listitem" tabindex="0" aria-label="Seasonal Cakes">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Delicious seasonal layered cake with frosting" loading="lazy" />
+        <div class="offering-content">
+          <h3>Seasonal Cakes</h3>
+          <p>Our cakes celebrate the seasons—using the freshest local ingredients and creative recipes tailored for celebrations or everyday indulgence.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section id="about" aria-labelledby="about-title">
+    <h2 id="about-title">About Test 1 Bakery</h2>
+    <p>Founded with the vision of bringing authentic artisan baking to Singapore's heart, Test 1 Bakery is your oasis for handcrafted breads and pastries made the traditional way.</p>
+    <p>We take pride in using natural fermentation techniques and seasonal ingredients sourced from trusted local partners. Our bakery is a warm, welcoming space designed especially for working professionals seeking quality and comfort in every bite.</p>
+    <p><strong>Visit us today:</strong> 10 Raffles Place, #01-55, Singapore 048619<br />Open Daily: 7am - 7pm</p>
+  </section>
+  <section id="preorder" aria-labelledby="preorder-title">
+    <h2 id="preorder-title">Online Pre-Orders</h2>
+    <p class="intro-text">Busy day ahead? Pre-order your favourite artisan breads, pastries, and cakes securely online and collect them in-store at your convenience. Freshness guaranteed.</p>
+    <div class="preorder-info" role="region" aria-live="polite">
+      <p><strong>Special Offer:</strong> Pre-order now and get <em>10% off</em> your first online purchase when you show this website at the shop!</p>
+      <button class="btn-primary" aria-label="Pre-order online now" id="preorder-btn">Pre-Order Online</button>
+    </div>
+  </section>
+  <section id="testimonials" aria-labelledby="testimonials-title">
+    <h2 id="testimonials-title">Happy Customers</h2>
+    <blockquote class="testimonial" tabindex="0">
+      “The sourdough here is simply the best I’ve had in Singapore. Perfect crust and amazing flavour. Highly recommend!”
+      <footer>- Daniel, Finance Executive</footer>
+    </blockquote>
+    <blockquote class="testimonial" tabindex="0">
+      “Their seasonal cakes add a touch of joy to our office celebrations. Delicious and beautifully crafted every time.”
+      <footer>- Mei Ling, Marketing Manager</footer>
+    </blockquote>
+    <blockquote class="testimonial" tabindex="0">
+      “Convenient pre-ordering means I never miss my morning croissant and coffee fix. Friendly staff and cozy ambiance too.”
+      <footer>- Jonathan, IT Consultant</footer>
+    </blockquote>
+  </section>
+  <section id="newsletter" aria-labelledby="newsletter-title" class="forms-wrapper">
+    <h2 id="newsletter-title">Stay Updated &amp; Get Exclusive Offers</h2>
+    <form id="register-form" aria-label="Register for newsletter with name and email">
+      <input type="email" id="reg-email" name="email" placeholder="Your email address" autocomplete="email" required aria-required="true" />
+      <input type="text" id="reg-name" name="name" placeholder="Your full name" autocomplete="name" required aria-required="true" />
+      <button type="submit" aria-label="Sign up for newsletter">Sign Up</button>
+    </form>
+    <div id="register-status" class="form-status" role="alert" aria-live="assertive" aria-atomic="true"></div>
+    <h3>Update Your Email</h3>
+    <form id="update-email-form" aria-label="Update your registered email address">
+      <input type="email" id="old-email" name="oldEmail" placeholder="Current email address" autocomplete="email" required aria-required="true" />
+      <input type="email" id="new-email" name="newEmail" placeholder="New email address" autocomplete="email" required aria-required="true" />
+      <button type="submit" aria-label="Update email">Update</button>
+    </form>
+    <div id="update-status" class="form-status" role="alert" aria-live="assertive" aria-atomic="true"></div>
+  </section>
+</main>
+<footer role="contentinfo">
+  &copy; 2024 Test 1 Bakery &mdash; Artisan Bakes in Singapore CBD
+</footer>
+<script>
+const siteId = new URLSearchParams(window.location.search).get('id') || '';
+
+async function registerUser(email, name) {
+  try {
+    const res = await fetch('https://techtravelthink.app.n8n.cloud/webhook/user-register', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ action: 'register', email, name, websiteId: siteId, source: window.location.href })
+    });
+    const data = await res.json();
+    return data.success ? 'Registered successfully!' : (data.message || 'Registration failed');
+  } catch(e) { return 'Network error. Please try again.'; }
+}
+
+async function updateUserEmail(oldEmail, newEmail) {
+  try {
+    const res = await fetch('https://techtravelthink.app.n8n.cloud/webhook/user-register', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ action: 'update', oldEmail, newEmail, websiteId: siteId })
+    });
+    const data = await res.json();
+    return data.success ? 'Email updated successfully!' : (data.message || 'Update failed');
+  } catch(e) { return 'Network error. Please try again.'; }
+}
+
+// Handle newsletter registration form
+document.getElementById('register-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const email = e.target['email'].value.trim();
+  const name = e.target['name'].value.trim();
+  const statusEl = document.getElementById('register-status');
+  statusEl.textContent = 'Submitting...';
+  e.target.querySelector('button[type="submit"]').disabled = true;
+  const message = await registerUser(email, name);
+  statusEl.textContent = message;
+  e.target.querySelector('button[type="submit"]').disabled = false;
+  if (message === 'Registered successfully!') e.target.reset();
+});
+
+// Handle email update form
+document.getElementById('update-email-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const oldEmail = e.target['oldEmail'].value.trim();
+  const newEmail = e.target['newEmail'].value.trim();
+  const statusEl = document.getElementById('update-status');
+  statusEl.textContent = 'Submitting...';
+  e.target.querySelector('button[type="submit"]').disabled = true;
+  const message = await updateUserEmail(oldEmail, newEmail);
+  statusEl.textContent = message;
+  e.target.querySelector('button[type="submit"]').disabled = false;
+  if (message === 'Email updated successfully!') e.target.reset();
+});
+
+// Preorder button click handler: redirect to a placeholder shop/order page
+document.getElementById('preorder-btn').addEventListener('click', () => {
+  window.location.href = '#newsletter';
+});
+</script>
+</body>
+</html>
